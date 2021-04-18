@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "329298453375",
+    "project_id": "malang-diary-b67e5",
+    "storage_bucket": "malang-diary-b67e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329298453375:android:6ce44f86d4c37849cd704a",
+        "android_client_info": {
+          "package_name": "com.example.loverdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329298453375-q8cd93a0p3lge6724aq03b754qggrjdn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loverdiary",
+            "certificate_hash": "d846f394e9f62a94a95c51fb25e522163c179318"
+          }
+        },
+        {
+          "client_id": "329298453375-mkg41aainbjpn4ifqpe5g5atj0coh3k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRzKGViFZjLAqKXhf3PNLsDGBYvP46K9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329298453375-mkg41aainbjpn4ifqpe5g5atj0coh3k1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
