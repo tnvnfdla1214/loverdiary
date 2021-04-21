@@ -1,5 +1,6 @@
 package com.example.loverdiary.addnotes
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -11,7 +12,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loverdiary.R
 import com.example.loverdiary.data.Notes
-import com.example.loverdiary.main.MainActivity
 import kotlinx.android.synthetic.main.activity_add_notes.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -71,8 +71,11 @@ class AddNotesActivity : AppCompatActivity(),
         presenter.addNotes(notes)
     }
 
-    override fun successAddNotes() {
-        MainActivity.start(this)
+    override fun successAddNotes(notes: Notes) {
+        val intent = Intent()
+        intent.putExtra("notes", notes)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
     override fun failedAddNotes(error: String) {

@@ -17,6 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+
 class MainActivity : AppCompatActivity(),
     MainContract.View {
 
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity(),
         }
 
         fabAdd.setOnClickListener {
-            AddNotesActivity.start(this)
+            addNoteResult()
         }
 
         uiScope.launch {
@@ -70,5 +71,15 @@ class MainActivity : AppCompatActivity(),
     override fun failed(error: String) {
         Log.d("TAG", "failed: $error")
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun addNoteResult() {
+        val intent = Intent(this, AddNotesActivity:: class.java)
+        startActivityForResult(intent, 100);
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        presenter.onActivityResult(requestCode, resultCode, data)
     }
 }

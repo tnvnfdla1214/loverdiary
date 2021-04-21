@@ -4,7 +4,7 @@ import com.example.loverdiary.data.Notes
 
 interface AddNotesContract {
     interface View {
-        fun successAddNotes()
+        fun successAddNotes(notes: Notes)
         fun failedAddNotes(error: String)
         fun showLoading()
         fun hideLoading()

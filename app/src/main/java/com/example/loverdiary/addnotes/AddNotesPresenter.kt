@@ -19,7 +19,7 @@ class AddNotesPresenter(private val view: AddNotesContract.View) : AddNotesContr
 
                 is BaseResult.Success -> {
                     view.hideLoading()
-                    view.successAddNotes()
+                    view.successAddNotes(notes)
                 }
 
                 is BaseResult.Failed -> {

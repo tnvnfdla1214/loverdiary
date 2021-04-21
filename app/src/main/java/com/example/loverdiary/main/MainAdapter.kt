@@ -31,6 +31,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     override fun getItemCount(): Int = notes.size
 
+    fun getNotesList(): ArrayList<Notes>? = notes
+
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(data: Notes) {
             with(itemView) {
