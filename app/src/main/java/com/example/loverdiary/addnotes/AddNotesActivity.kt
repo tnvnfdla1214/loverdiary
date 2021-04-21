@@ -28,7 +28,7 @@ class AddNotesActivity : AppCompatActivity(),
             context.startActivity(Intent(context, AddNotesActivity::class.java))
         }
     }
-
+//zz
     private lateinit var presenter: AddNotesPresenter
 
     private lateinit var dialog: AlertDialog
