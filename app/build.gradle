@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.loverdiary"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -43,6 +43,16 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //kakao login
+    implementation "com.kakao.sdk:v2-user:2.1.0"
+
+    // RxJava2
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.20'
 
     //파이어베이스
     implementation platform('com.google.firebase:firebase-bom:27.0.0')
