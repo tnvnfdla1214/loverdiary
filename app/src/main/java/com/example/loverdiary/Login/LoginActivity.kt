@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loverdiary.R
 import com.example.loverdiary.ui.Profile.ProfileActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
@@ -17,13 +18,14 @@ import com.kakao.sdk.user.UserApiClient
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     private lateinit var kakao_login_button : ImageButton
+    private var fireBaseAuth : FirebaseAuth? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val keyHash = Utility.getKeyHash(this)
-        Log.d("Hash", keyHash)
+        fireBaseAuth = FirebaseAuth.getInstance()
 
         kakao_login_button = findViewById(R.id.kakao_login_button)
 
@@ -61,9 +63,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
             }
             else if (token != null) {
                 getData()
-                Toast.makeText(this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+
             }
         }
 
@@ -84,12 +84,40 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
                 Log.d("Hash", "사용자 정보 요청 실패", error)
             }
             else if (user != null) {
-                Log.d("Hash", "사용자 정보 요청 성공" +
-                        "\n회원번호: ${user.id}" +
-                        "\n이메일: ${user.kakaoAccount?.email}" +
-                        "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
-                        "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
+                val email = user.kakaoAccount?.email
+                val gender = user.kakaoAccount?.gender
+                val birthday = user.kakaoAccount?.birthday
+                val password = "1234567890"
+                firebaseAuthKakaoLogin(email!!, password)
+                Log.d("Hash", "email " + email)         // 이메일
+                Log.d("Hash", "gender " + gender)       // MALE
+                Log.d("Hash", "birthday " + birthday)   // 년도는 못받음
             }
         }
+    }
+    fun firebaseAuthKakaoSignup(email : String, password : String){
+        fireBaseAuth!!.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this){
+                if(!it.isSuccessful){
+                    Toast.makeText(this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                }
+            }
+    }
+    fun firebaseAuthKakaoLogin(email : String, password : String){
+        fireBaseAuth!!.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this){
+                if(it.isSuccessful){
+                    Toast.makeText(this, "로그인 성공하였습니다.", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                }else{
+                    Toast.makeText(this, "회원가입 하고 오세요.", Toast.LENGTH_SHORT).show()
+                    firebaseAuthKakaoSignup(email, password)
+                }
+            }
     }
 }
