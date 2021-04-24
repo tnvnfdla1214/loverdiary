@@ -3,6 +3,11 @@
     package="com.example.loverdiary">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.example.loverdiary.Login.GlobalApplication"
@@ -28,7 +33,8 @@
                     android:scheme="kakao0bf0c5a07430d2db413a76aca56fa803" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Profile.ProfileActivity"/>
+        <activity android:name="com.example.loverdiary.Profile.ProfileActivity"/>
+        <activity android:name="com.example.loverdiary.Gallery.GalleryActivity"/>
     </application>
 
 </manifest>

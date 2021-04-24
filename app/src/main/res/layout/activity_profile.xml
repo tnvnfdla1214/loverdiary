@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="right">
 
@@ -17,9 +17,11 @@
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:text="확인"
-            android:layout_gravity="right"
-            android:shadowRadius="?attr/colorPrimary"
-            style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            android:background="@color/teal_700"
+            android:textColor="@color/black"
+            android:layout_gravity="right"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -87,7 +89,6 @@
                     android:layout_width="220dp"
                     android:layout_height="30dp"
                     android:inputType="textPersonName"
-                    android:hint=" 주짓수일짱"
                     android:background="@drawable/profile_edittext"
                     android:textSize="25dp"
                     />
@@ -112,7 +113,6 @@
                     android:layout_width="220dp"
                     android:layout_height="30dp"
                     android:inputType="textPersonName"
-                    android:hint=" 임민규"
                     android:background="@drawable/profile_edittext"
                     android:textSize="25dp"
                     />
