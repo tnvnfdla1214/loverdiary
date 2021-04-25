@@ -1,6 +1,8 @@
-package com.example.loverdiary
+package com.example.loverdiary.data
 
 
+import com.example.loverdiary.data.Notes
+import com.example.loverdiary.utils.BaseResult
 import com.google.firebase.firestore.DocumentReference
 import kotlinx.coroutines.flow.Flow
 

@@ -1,11 +1,15 @@
-package com.example.loverdiary
+package com.example.loverdiary.ui
 
 
+import com.example.loverdiary.data.Notes
+import com.example.loverdiary.data.NotesRepository
+import com.example.loverdiary.utils.BaseResult
 import kotlinx.coroutines.flow.collect
 
 class AddNotesPresenter(private val view: AddNotesContract.View) : AddNotesContract.Presenter {
 
-    private var repository: NotesRepository = NotesRepository()
+    private var repository: NotesRepository =
+        NotesRepository()
 
     override suspend fun addNotes(notes: Notes) {
         repository.addNotes(notes).collect { state ->

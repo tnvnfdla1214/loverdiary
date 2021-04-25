@@ -1,4 +1,4 @@
-package com.example.loverdiary
+package com.example.loverdiary.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,12 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.loverdiary.*
+import com.example.loverdiary.data.Notes
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity(), MainContract.View {
+class MainActivity : AppCompatActivity(),
+    MainContract.View {
 
     //싱글톤
     companion object {

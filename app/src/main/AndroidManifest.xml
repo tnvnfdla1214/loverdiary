@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Loverdiary">
         <activity
-            android:name=".AddNotesActivity"
+            android:name=".ui.AddNotesActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,9 +1,11 @@
-package com.example.loverdiary
+package com.example.loverdiary.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.loverdiary.data.Notes
+import com.example.loverdiary.R
 import kotlinx.android.synthetic.main.items_notes.view.*
 import java.util.ArrayList
 
@@ -32,8 +34,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(data: Notes) {
             with(itemView) {
-                tvTitle.text = data.title
-                tvMessage.text = data.message
+                tvTitle.text = data.notesTitle
+                tvMessage.text = data.notesPageCount.toString()
             }
         }
     }

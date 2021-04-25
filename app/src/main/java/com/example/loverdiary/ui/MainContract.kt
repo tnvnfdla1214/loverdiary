@@ -1,4 +1,6 @@
-package com.example.loverdiary
+package com.example.loverdiary.ui
+
+import com.example.loverdiary.data.Notes
 
 
 interface MainContract {

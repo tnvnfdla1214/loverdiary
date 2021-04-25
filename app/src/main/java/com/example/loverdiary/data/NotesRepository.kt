@@ -1,6 +1,6 @@
-package com.example.loverdiary
+package com.example.loverdiary.data
 
-import android.util.Log
+import com.example.loverdiary.utils.BaseResult
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers

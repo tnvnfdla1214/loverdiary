@@ -1,4 +1,4 @@
-package com.example.loverdiary
+package com.example.loverdiary.utils
 
 sealed class BaseResult<T> {
     class Loading<T> : BaseResult<T>()
@@ -7,7 +7,9 @@ sealed class BaseResult<T> {
 
     companion object {
         fun <T> loading() = Loading<T>()
-        fun <T> success(data: T) = Success(data)
-        fun <T> failed(message: String) = Failed<T>(message)
+        fun <T> success(data: T) =
+            Success(data)
+        fun <T> failed(message: String) =
+            Failed<T>(message)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.loverdiary
+package com.example.loverdiary.ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.loverdiary.*
+import com.example.loverdiary.data.Notes
 import kotlinx.android.synthetic.main.activity_add_notes.*
 
 import kotlinx.coroutines.CoroutineScope
@@ -14,7 +16,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
-class AddNotesActivity : AppCompatActivity(), AddNotesContract.View {
+class AddNotesActivity : AppCompatActivity(),
+    AddNotesContract.View {
 
     companion object {
         fun start(context: Context) {
@@ -57,7 +60,7 @@ class AddNotesActivity : AppCompatActivity(), AddNotesContract.View {
         val title = edtTitle.text.toString().trim()
         val message = edtMessage.text.toString().trim()
         val id = UUID.randomUUID().toString()
-        val notes = Notes(id, title, message)
+        val notes = Notes(title, message, 0, id)
         presenter.addNotes(notes)
     }
 
